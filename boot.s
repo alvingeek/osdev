@@ -1,8 +1,8 @@
 .code16
-.section .data
+.section .text
 .global _start
 
-SCREEN_CHAR_NUM=25*80
+SCREEN_PIXEL = 25*80
 
 _start:
 
@@ -18,10 +18,10 @@ clear_screen:
     mov $0xb800, %ax
     mov %ax, %es
     xor %di, %di
-    xor %ax, %ax
-    mov $0b00010000,%ah
-    mov $SCREEN_CHAR_NUM, %cx
-    cld
+    mov $0b00010000, %ah
+    mov $0, %al
+    mov $SCREEN_PIXEL, %cx
+    cld #df=0
     rep stosw
 
     mov $0xb800, %ax

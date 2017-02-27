@@ -1,11 +1,10 @@
 SHELL=/bin/bash
-CC=gcc
-CCFLAGS=
-AS=as
-ASFLAGS=
-LD=ld
-LDFLAGS=
-RM=rm
+AS		=	as
+ASFLAGS	=	-f elf
+CC		=	gcc
+CFLAGS	=	-Wall -O
+LD		=	ld
+LDFLAGS	=	-Ttext 0x0 -e main --oformat binary -s -x -M
 
 boot.o:boot.s
 	$(CC) -c -o boot.o boot.s

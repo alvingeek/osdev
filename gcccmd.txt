@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc -S -o test.s test.c -fno-asynchronous-unwind-tables
+gcc -S -o test.s test.c -fomit-frame-pointer
